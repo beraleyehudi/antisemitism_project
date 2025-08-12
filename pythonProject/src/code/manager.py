@@ -1,8 +1,8 @@
 from managers.statistics import Statistics as StatisticManager
 from managers.cleaner import Cleaner as CleanerManager
 from managers.receptor import Receptor
-from files.json import Json
-from files.csv import Csv
+from files_actions.json import Json
+from files_actions.csv import Csv
 
 
 class Manager:
