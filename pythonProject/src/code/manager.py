@@ -14,8 +14,8 @@ It shows in the file paths, the container for the data, and the special value ch
     """
     def __init__(self):
         self.__data_file_path = r'C:\Users\User\Desktop\antisemitism_project\pythonProject\data\tweets_dataset.csv'
-        self.__json_file_path = r'C:\Users\User\Desktop\antisemitism_project\pythonProject\result\statistics.json'
-        self.__csv_file_path = r'C:\Users\User\Desktop\antisemitism_project\pythonProject\result\tweets_dataset.csv'
+        self.__json_file_path = r'C:\Users\User\Desktop\antisemitism_project\pythonProject\results\statistics.json'
+        self.__csv_file_path = r'C:\Users\User\Desktop\antisemitism_project\pythonProject\results\tweets_dataset.csv'
         self.__data_container = {
             'total_tweets': {},
             'average_words_length': {},
@@ -33,11 +33,11 @@ It shows in the file paths, the container for the data, and the special value ch
        
         statistic_manager = StatisticManager(self.__df, 'Text', 'Biased', self.__data_container)
         print(statistic_manager.data)
-        # Json.save_json(statistic_manager.data, self.__json_file_path)
+        Json.save_json(statistic_manager.data, self.__json_file_path)
 
     def Export_cleaned_csv_file(self):
 
-        df = CleanerManager(self.__df).df
+        df = CleanerManager(self.__df, 'Text').df
         Csv(df).to_csv(self.__csv_file_path)
         
         
