@@ -4,12 +4,16 @@ import pandas as pd
 from collections import Counter
 
 class Statistics:
+    def __init__(self, df):
+        self.__df = df
+        
+
+
+class TextStatistics:
     def __init__(self, df, text_column):
         self.__df = df
         self.__text_column = text_column
         
-
-# class TextStatistics(Statistics):
 
 
 
@@ -23,7 +27,7 @@ class Statistics:
     def average_words_length(self, groupby_column = False):
         self.__df["Words_Length"] = list(map(lambda x: len(x.split()), self.__df[self.__text_column]))
         if not groupby_column:
-            return self.__df["Words_length"].mean()
+            return float(self.__df["Words_Length"].mean())
         return self.__df.groupby(groupby_column)["Words_Length"].mean().to_dict()
 
     def common_words(self, common_number = 10):
