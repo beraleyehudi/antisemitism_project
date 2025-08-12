@@ -7,7 +7,7 @@ class Clean:
 
     def remove_punctuation_marks(self):
         
-        self.__df[self.__text_column] = list(map(lambda x : re.sub(r'[,.:;?!-=]', '', x), self.__df[self.__text_column]))
+        self.__df[self.__text_column] = list(map(lambda x : re.sub(r'[,.:;?!-="@]', '', x), self.__df[self.__text_column]))
 
     def convert_to_lowercase(self):
         
